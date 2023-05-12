@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_filters',
     'drf_spectacular',
     'mptt',
+    'nested_admin',
     # Internal Apps
     'api',
     'main',
@@ -125,9 +126,19 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    # YOUR SETTINGS
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 30,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    #     'drf_social_oauth2.authentication.SocialAuthentication',
+    # ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
+
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'SavizProject',
