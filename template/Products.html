@@ -1,0 +1,119 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <div class="shop_sidebar_area">
+
+        <div class="widget catagory mb-50">
+
+            <h6 class="widget-title mb-30">دسته بندی‌ها</h6>
+
+            <div class="catagories-menu">
+                <ul id="categories-list">
+                    <div class="loading"></div>
+                </ul>
+            </div>
+        </div>
+    <hr/>
+        <div class="widget brands mb-50">
+            <h6 class="widget-title mb-30">برندها</h6>
+
+            <div class="widget-desc" id="brands-list">
+                <div class="loading"></div>
+            </div>
+        </div>
+        <div class="widget color mb-50">
+            <h6 class="widget-title mb-30">رنگ بندی</h6>
+            <div class="widget-desc">
+                <ul class="d-flex" id="colors-list">
+                    <div class="loading"></div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="widget price mb-50">
+
+            <h6 class="widget-title mb-30">قیمت</h6>
+
+            <div class="widget-desc">
+                <div class="slider-range">
+                    <div data-min="100000" data-max="1000000" data-unit="تومان"
+                         class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                         data-value-min="100000" data-value-max="1000000" data-label-result="">
+                        <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
+                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                    </div>
+                    <div class="range-price">100000 - 1000000 تومان</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pando_product_area section-padding-100">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-topbar d-xl-flex align-items-end justify-content-between">
+                        <div class="total-products">
+                            <p>نمایش 1 - 8 از 25</p>
+                            <div class="view d-flex">
+                                <a href="{% url "main:productsPage" %}"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+                                <a href="shop-list.html"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-sorting d-flex">
+                            <div class="sort-by-date d-flex align-items-center mr-15">
+                                <p>ترتیب بندی</p>
+                                <form action="#" method="get">
+                                    <select name="select" id="sortBydate">
+                                        <option value="value">تاریخ</option>
+                                        <option value="value">جدیدترین</option>
+                                        <option value="value">محبوب</option>
+                                    </select>
+                                </form>
+                            </div>
+                            <div class="view-product d-flex align-items-center">
+                                <p>مشاهده</p>
+                                <form action="#" method="get">
+                                    <select name="select" id="viewProduct">
+                                        <option value="value">12</option>
+                                        <option value="value">24</option>
+                                        <option value="value">48</option>
+                                        <option value="value">96</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="products-list">
+                <div class="loading"></div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="navigation">
+                        <ul class="pagination justify-content-end mt-50">
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        ProductsPageCategories()
+        ProductsPageBrand()
+        ProductsPageColor()
+        ProductPageProducts(category='{{ category }}')
+    </script>
+{% endblock %}

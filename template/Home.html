@@ -1,56 +1,9 @@
 {% extends "index.html" %}
 {% load static %}
 {% block content %}
-    <div class="main-content-wrapper d-flex clearfix">
-        <div class="mobile-nav">
-            <div class="pando-navbar-brand">
-                <a href="index.html"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
-            </div>
-            <div class="pando-navbar-toggler">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <header class="header-area clearfix">
-
-            <div class="nav-close">
-                <i class="fa fa-close" aria-hidden="true"></i>
-            </div>
-            <div class="logo">
-                <a href="index.html"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
-            </div>
-            <nav class="pando-nav">
-                <ul>
-                    <li class="active"><a href="{% url "main:homePage" %}">صفحه نخست</a></li>
-                    <li><a href="shop.html">فروشگاه</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">تماس با ما</a></li>
-                    <li><a href="cart.html">سبد خرید</a></li>
-                    <li><a href="checkout.html">تسویه حساب</a></li>
-                </ul>
-            </nav>
-            <div class="pando-btn-group mt-30 mb-100">
-                <a href="#" class="btn pando-btn mb-15">تخفیف ویژه بگیرید</a>
-                <a href="#" class="btn pando-btn active">جدیدترین محصولات</a>
-            </div>
-            <div class="cart-fav-search mb-100">
-                <a href="cart.html" class="cart-nav"><img src="{% static 'img/core-img/cart.png' %}" alt=""> سبد خرید
-                    <span>(0)</span></a>
-                <a href="#" class="fav-nav"><img src="{% static 'img/core-img/favorites.png' %}" alt=""> محصولات
-                    محبوب</a>
-                <a href="#" class="search-nav"><img src="{% static 'img/core-img/search.png' %}" alt=""> جستجو</a>
-            </div>
-            <div class="social-info d-flex justify-content-between">
-                <a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-            </div>
-        </header>
-        <div class="products-catagories-area clearfix">
-            <div class="pando-pro-catagory clearfix" id="product-content">
-
-            </div>
+    <div class="products-catagories-area clearfix">
+        <div class="pando-pro-catagory clearfix" id="product-content">
+            <div class="loading"></div>
         </div>
     </div>
 {% endblock %}

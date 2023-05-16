@@ -1,7 +1,7 @@
 from rest_framework.response import Response
-from main.models import ProductInventory, Category, Brand, Product
+from main.models import ProductInventory, Category, Brand, Product, Color, Size
 from .serializers import BasicProductInventorySerializer, BasicCategoriesSerializer, BasicBrandsSerializer, \
-    BasicProductSerializer
+    BasicProductSerializer,BasicColorSerializer,BasicSizeSerializer
 from rest_framework import status, permissions, pagination, generics
 from django_filters import rest_framework as filters
 from rest_framework.filters import OrderingFilter
@@ -24,7 +24,7 @@ class BasicProductView(generics.ListAPIView):
     serializer_class = BasicProductSerializer
     filter_backends = [filters.DjangoFilterBackend, OrderingFilter]
     filterset_class = ProductFilter
-    ordering_fields = ['?', 'create_at', "-create_at", "name", "product__sale_price","-product__sale_price"]
+    ordering_fields = ['?', 'create_at', "-create_at", "name", "product__sale_price", "-product__sale_price"]
     pagination.PageNumberPagination.page_size = 30
 
 
@@ -45,3 +45,15 @@ class BasicBrandsView(generics.ListAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Brand.objects.all()
     serializer_class = BasicBrandsSerializer
+
+
+class BasicColorView(generics.ListAPIView):
+    permission_classes = [permissions.AllowAny]
+    queryset = Color.objects.all()
+    serializer_class = BasicColorSerializer
+
+
+class BasicSizeView(generics.ListAPIView):
+    permission_classes = [permissions.AllowAny]
+    queryset = Size.objects.all()
+    serializer_class = BasicSizeSerializer
